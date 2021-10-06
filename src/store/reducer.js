@@ -1,6 +1,45 @@
 import { SELECT_ERA, SELECT_GENRE } from './actions';
 
 const initialState ={
+  radios:[
+    // {
+    //   'changeuuid': '',
+    //   'stationuuid': '',
+    //   'name': '',
+    //   'url': '',
+    //   'url_resolved': '',
+    //   'homepage': '',
+    //   'favicon': '',
+    //   'tags': '',
+    //   'country': '',
+    //   'countrycode': '',
+    //   'iso_3166_2': null,
+    //   'state': '',
+    //   'language': '',
+    //   'languagecodes': '',
+    //   'votes': 0,
+    //   'lastchangetime': '',
+    //   'lastchangetime_iso8601': '',
+    //   'codec': '',
+    //   'bitrate': 0,
+    //   'hls': 0,
+    //   'lastcheckok': 0,
+    //   'lastchecktime': '',
+    //   'lastchecktime_iso8601': '',
+    //   'lastcheckoktime': '',
+    //   'lastcheckoktime_iso8601': '',
+    //   'lastlocalchecktime': '',
+    //   'lastlocalchecktime_iso8601': '',
+    //   'clicktimestamp': '',
+    //   'clicktimestamp_iso8601': '',
+    //   'clickcount': 0,
+    //   'clicktrend': 0,
+    //   'ssl_error': 0,
+    //   'geo_lat': null,
+    //   'geo_long': null,
+    //   'has_extended_info': false
+    // }
+  ],
   selectorInput  : {
     musicGenre: '',
     musicEra:'',
@@ -8,7 +47,6 @@ const initialState ={
 };
 
 const reducer = (state = initialState, action) => {
-  console.log('reducer action :', action.type);
   switch (action.type){
 
   case SELECT_ERA:
@@ -27,9 +65,11 @@ const reducer = (state = initialState, action) => {
         musicGenre: action.musicGenreInputValue,
       }
     };
-  case 'GET_RADIOS':
-    console.log('ok get radios');
-    break;
+  case 'STORE_RADIOS':
+    return {
+      ...state,
+      radios: action.radios,
+    };
 
   default:
     return state;

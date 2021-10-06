@@ -11,3 +11,7 @@ export const selectGenre = (musicGenreInputValue) => (
 export const getRadiosFromAPI = () => (
   {type: GET_RADIOS }
 );
+
+export const storeRadiosInState = ( radios ) => (
+  { type : 'STORE_RADIOS', radios : radios }
+);
