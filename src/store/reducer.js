@@ -1,4 +1,4 @@
-import { SELECT_ERA, SELECT_GENRE, STORE_RADIOS } from './actions';
+import { SELECT_ERA, SELECT_GENRE,SELECT_COUNTRY, STORE_RADIOS } from './actions';
 
 const initialState ={
   radios:[
@@ -41,8 +41,8 @@ const initialState ={
     // }
   ],
   selectorInput  : {
-    musicGenre: 'disco',
-    musicEra:'60s',
+    musicGenre: '',
+    musicEra:'',
   }
 };
 
@@ -63,6 +63,14 @@ const reducer = (state = initialState, action) => {
       selectorInput: {
         ...state.selectorInput,
         musicGenre: action.musicGenreInputValue,
+      }
+    };
+  case SELECT_COUNTRY:
+    return {
+      ...state,
+      selectorInput: {
+        ...state.selectorInput,
+        musicCountry: action.musicCountryInputValue
       }
     };
   case STORE_RADIOS:

@@ -10,13 +10,16 @@ const getRadiosMiddleware = (store) => (next) => (action) => {
     const state = store.getState();
     const era = state.selectorInput.musicEra;
     const genre = state.selectorInput.musicGenre;
+    const country = state.selectorInput.musicCountry ? `&countrycode=${state.selectorInput.musicCountry}` : '';
     // const tag = `${era},${genre}`;
     // const offset = 1;
+    console.log('country',country);
 
     const config = {
       method: 'get',
       baseURL:'https://nl1.api.radio-browser.info/',
-      url:`/json/stations/search?limit=15&tagList=${genre},${era}&hidebroken=true&order=clickcount&reverse=true`
+      // baseURL:'https://de1.api.radio-browser.info',
+      url:`/json/stations/search?limit=15${country}&tagList=${genre},${era}&hidebroken=true&order=clickcount&reverse=true`
     };
     axios(config)
       .then((response) => {

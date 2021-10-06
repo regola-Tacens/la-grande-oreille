@@ -2,11 +2,19 @@
 
 .selector{
   margin:0 auto;
-  width:40%;
+  width:80%;
   text-align: center;
   margin-bottom:3rem;
+  
 
   &__form{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+    &__era, &__genre,&__country{
+      position:relative;
+    }
 
     &__select{
       background-color: black;
@@ -20,7 +28,14 @@
       border: none;
       padding:0.5rem;
       color:white;
+      border-radius: 50%;
     }
-
   }
+}
+.label{
+  position:relative;
+  left:0px;
+  top:1.5px;
+  border:1px solid black;
+  padding:0.4rem;
 }
