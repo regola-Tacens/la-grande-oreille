@@ -1,6 +1,7 @@
 import { useSelector, useDispatch} from 'react-redux';
 import {Howl} from 'howler';
 import { storeNewSound } from '../../store/actions';
+import './radioList.scss';
 
 const RadioList = () => {
   const radios = useSelector ((state) => state.radios);
@@ -12,23 +13,23 @@ const RadioList = () => {
     const sound = new Howl({
       src : src,
       html5: true,
-      format: ['mp3', 'aac']
+      format: ['webm','mp3','aac','aac+','ogg']
     });
     dispatch(storeNewSound(sound));
 
-    // sound.play();
   };
 
   
   return(
-    <>
+    <div className="radiosList">
       {radios.map(radio =>(
-        <div>{radio.name}
-          <button onClick={() => handleSound(radio.url_resolved)}>écouter </button>
+        <div className="radiosList__radio">
+          <div className="radiosList__radio__name">{radio.name}</div>
+          <button className="radiosList__radio__playBtn" onClick={() => handleSound(radio.url)}>play</button>
         </div>
       ))}
     
-    </>
+    </div>
   );
     
 
