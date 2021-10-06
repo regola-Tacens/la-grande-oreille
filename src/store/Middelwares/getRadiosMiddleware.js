@@ -10,13 +10,13 @@ const getRadiosMiddleware = (store) => (next) => (action) => {
     const state = store.getState();
     const era = state.selectorInput.musicEra;
     const genre = state.selectorInput.musicGenre;
-    const tag = `&tagList=${era},${genre}`;
-    const offset = 1;
+    // const tag = `${era},${genre}`;
+    // const offset = 1;
 
     const config = {
       method: 'get',
       baseURL:'https://nl1.api.radio-browser.info/',
-      url: `/json/stations/search?offset=${offset}&limit10${tag}&hidebroken=true&order=clickcount&reverse=true`,
+      url:`/json/stations/search?limit=15&tagList=${genre},${era}&hidebroken=true&order=clickcount&reverse=true`
     };
     axios(config)
       .then((response) => {

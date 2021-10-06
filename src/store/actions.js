@@ -17,6 +17,6 @@ export const storeRadiosInState = ( radios ) => (
   { type : 'STORE_RADIOS', radios : radios }
 );
 
-export const storeNewSound = ( sound ) => (
-  { type : 'STORE_NEW_SOUND', newSound : sound}
+export const storeNewSound = ( sound, radioName ) => (
+  { type : 'STORE_NEW_SOUND', newSound : sound, radioName : radioName }
 );

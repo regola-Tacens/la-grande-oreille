@@ -10,6 +10,13 @@
     margin:0.5rem;
     padding:2rem;
     background-color: rgb(83, 206, 189);
+    transition: background-color 1s;
+
+
+    &:hover{
+      background-color: rgb(148, 228, 217);
+      transition: background-color 0.2s;
+    }
 
     &__name{
       display: inline-block;

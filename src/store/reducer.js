@@ -41,8 +41,8 @@ const initialState ={
     // }
   ],
   selectorInput  : {
-    musicGenre: '',
-    musicEra:'',
+    musicGenre: 'disco',
+    musicEra:'60s',
   }
 };
 
@@ -73,7 +73,8 @@ const reducer = (state = initialState, action) => {
   case 'STORE_NEW_SOUND':
     return {
       ...state,
-      radioStream : action.newSound
+      radioStream : action.newSound,
+      radioName : action.radioName
     };
 
   default:
