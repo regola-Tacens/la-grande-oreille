@@ -1,5 +1,5 @@
 import { useSelector, useDispatch} from 'react-redux';
-import {Howl} from 'howler';
+import { Howl } from 'howler';
 import { storeNewSound } from '../../store/actions';
 import './radioList.scss';
 
@@ -23,7 +23,9 @@ const RadioList = () => {
   
   return(
     <div className="radiosList">
-      <h2>Playing : {radioName}</h2>
+      { 
+        radioName && <h2>Playing : {radioName}</h2> 
+      }
       {radios.map(radio =>(
         <div className="radiosList__radio">
           <div className="radiosList__radio__name">{radio.name}</div>
