@@ -20,7 +20,7 @@ const getRadiosMiddleware = (store) => (next) => (action) => {
     const config = {
       method: 'get',
       baseURL:'https://nl1.api.radio-browser.info/',
-      url: `/json/stations/search?offset=${offset}&limit=10${tag}&hidebroken=true&order=clickcount&reverse=true`,
+      url: `/json/stations/search?offset=${offset}&limit=30${tag}&hidebroken=true&order=clickcount&reverse=true`,
     };
     axios(config)
       .then((response) => {

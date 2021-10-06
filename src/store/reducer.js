@@ -1,4 +1,4 @@
-import { SELECT_ERA, SELECT_GENRE } from './actions';
+import { SELECT_ERA, SELECT_GENRE, STORE_RADIOS } from './actions';
 
 const initialState ={
   radios:[
@@ -65,10 +65,15 @@ const reducer = (state = initialState, action) => {
         musicGenre: action.musicGenreInputValue,
       }
     };
-  case 'STORE_RADIOS':
+  case STORE_RADIOS:
     return {
       ...state,
       radios: action.radios,
+    };
+  case 'STORE_NEW_SOUND':
+    return {
+      ...state,
+      radioStream : action.newSound
     };
 
   default:

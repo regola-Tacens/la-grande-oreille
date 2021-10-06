@@ -1,5 +1,6 @@
 import { useDispatch } from 'react-redux';
 import { selectEra, selectGenre, getRadiosFromAPI } from '../../store/actions';
+import './radioSelector.scss';
 
 const RadioSelector = () => {
   const dispatch = useDispatch();
@@ -32,8 +33,17 @@ const RadioSelector = () => {
           <option>jazz</option>
           <option>soul</option>
           <option>hiphop</option>
+          <option>rock</option>
+          <option>electronic</option>
+          <option>folk</option>
+          <option>indie</option>
+          <option>ambiant</option>
+          <option>funk</option>
+          <option>reggae</option>
+          <option>blues</option>
+          <option>rap</option>
         </select>
-        <button className="selector__form__submitBtn" >chercher</button>
+        <button className="selector__form__submitBtn" > go! </button>
       </form>
     </div>
   );

@@ -1,0 +1,23 @@
+@use 'src/styles/vars';
+
+.selector{
+  margin:2rem;
+
+  &__form{
+
+    &__select{
+      background-color: black;
+      color:white;
+      margin-right:1rem;
+      padding: 0.5rem;
+      border:none;
+    }
+    &__submitBtn{
+      background-color: vars.$PopColor;
+      border: none;
+      padding:0.5rem;
+      color:white;
+    }
+
+  }
+}

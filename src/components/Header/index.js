@@ -2,7 +2,7 @@ import './header.scss';
 
 const Header = () => (
   <header className="header">
-    <h1>La Grande Oreille</h1>
+    <h1 className="header__title">La Grande Oreille</h1>
   </header>
 );
 
