@@ -37,7 +37,7 @@ const RadioList = () => {
   const handleChangePage = (direction) => {
     const newOffset = actualOffset + direction;
     // on vérifie qu'il est possible de passer à la page suivante ou à la page précédente
-    if(newOffset >= 0 && newOffset<radiosQuantity) dispatch(changePage(newOffset));
+    if(newOffset >= 0 && (newOffset)<radiosQuantity) dispatch(changePage(newOffset));
     dispatch(getRadiosFromAPI());
   };
 
