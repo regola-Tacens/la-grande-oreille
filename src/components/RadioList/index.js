@@ -38,10 +38,12 @@ const RadioList = () => {
 
   return (
     <div className='radiosList'>
-      <Title radioName={radioName} isLoading={isLoading} />
+      <Title radioName={radioName} isLoading={isLoading} actualOffset={actualOffset} />
       {radios.map(radio => <Radio  handleSound={handleSound} radio={radio}/>)}
-      {radios.length >0 &&( <><button className="radiosList__pageBtn back" onClick={()=>handleChangePage(-10)}><ArrowLeftCircle size={20} /></button>
-        <button className="radiosList__pageBtn forward" onClick={()=>handleChangePage(10)}><ArrowRightCircle size={20} /></button> </>)}
+      {
+        radios.length >0 &&( <><button className="radiosList__pageBtn back" onClick={()=>handleChangePage(-10)}><ArrowLeftCircle size={20} /></button>
+          <button className="radiosList__pageBtn forward" onClick={()=>handleChangePage(10)}><ArrowRightCircle size={20} /></button> </>)
+      }
     </div>
   );
 };

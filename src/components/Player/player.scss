@@ -23,3 +23,15 @@
     // color : white;
   }
 }
+@media (max-width:800px){
+.player{
+  flex-direction: column;
+  margin-right:0rem;
+  align-items: center;
+  padding:0.8rem;
+  border-radius:0px;
+  &__Btn{
+    margin: 1rem 0;
+  }
+}
+}

@@ -92,3 +92,39 @@ left:1rem;
   transform: translateX(0px);
   transition: transform 0.5s ease;
 }
+
+.title{
+  display: flex;
+  justify-content: space-between;
+  margin:0.5rem;
+  &__page{
+    text-align: right;
+    color: vars.$SecondaryColor;
+    font-weight: bold;
+    font-size: 1.5rem;
+  }
+}
+@media (max-width:850px){
+  .back{
+    left:0px;
+    margin:0;
+    padding:0.8rem;
+    border-radius: 0px;
+    &:after{
+      right:0px;
+      top:8px;
+      border-radius: 0px;
+    }
+  }
+  .forward{
+    right:0px;
+    margin:0;
+    padding:0.8rem;
+    border-radius: 0px;
+    &:after{
+      left:0px;
+      top:8px;
+      border-radius: 0px;
+    }
+  }
+}
