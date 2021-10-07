@@ -22,6 +22,9 @@ export const getRadiosFromAPI = () => (
 export const storeRadiosInState = ( radios ) => (
   { type : STORE_RADIOS, radios : radios }
 );
+export const storeRadiosQuantity = ( radiosQuantity ) => (
+  { type: 'STORE_RADIOS_QUANTITY', radiosQuantity: radiosQuantity}
+);
 
 export const storeNewSound = ( sound, radioName ) => (
   { type : STORE_NEW_SOUND, newSound : sound, radioName : radioName }

@@ -9,6 +9,7 @@ import { SELECT_ERA,
 
 const initialState ={
   radios:[],
+  radiosQuantity:0,
   selectorInput  : {
     musicGenre: '',
     musicEra:'',
@@ -47,6 +48,11 @@ const reducer = (state = initialState, action) => {
     return {
       ...state,
       radios: action.radios,
+    };
+  case 'STORE_RADIOS_QUANTITY':
+    return {
+      ...state, 
+      radiosQuantity: action.radiosQuantity
     };
   case STORE_NEW_SOUND:
     return {

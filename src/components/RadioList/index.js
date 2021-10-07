@@ -18,6 +18,7 @@ const RadioList = () => {
   const radioStream = useSelector((state) => state.radioStream);
   const radioName = useSelector((state) => state.radioName);
   const actualOffset = useSelector((state) => state.pageOffset);
+  const radiosQuantity = useSelector ((state) => state.radiosQuantity);
   const dispatch = useDispatch();
   const [isLoading, setIsLoading] = useState(false);
 
@@ -44,6 +45,7 @@ const RadioList = () => {
     <div className='radiosList'>
       {radios.length > 0 && (
         <Title
+          radiosQuantity={radiosQuantity}
           radioName={radioName}
           isLoading={isLoading}
           actualOffset={actualOffset}

@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-import { GET_RADIOS, storeRadiosInState } from '../actions';
+import { GET_RADIOS, storeRadiosInState, storeRadiosQuantity } from '../actions';
 
 const getRadiosMiddleware = (store) => (next) => (action) => {
   
@@ -23,6 +23,22 @@ const getRadiosMiddleware = (store) => (next) => (action) => {
       .then((response) => {
         console.log(response.data); 
         store.dispatch(storeRadiosInState(response.data));
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+
+    // requete pour le nombre total de réponses
+    const configTotalPages = {
+      method: 'get',
+      baseURL:'https://nl1.api.radio-browser.info/',
+      // baseURL:'https://de1.api.radio-browser.info',
+      url:`/json/stations/search?${country}&tagList=${genre},${era}&hidebroken=true&order=clickcount&reverse=true`
+    };
+    axios(configTotalPages)
+      .then((response) => {
+        console.log('yo',response.data.length); 
+        store.dispatch(storeRadiosQuantity(response.data.length));
       })
       .catch((error) => {
         console.log(error);
