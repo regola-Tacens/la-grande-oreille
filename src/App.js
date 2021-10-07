@@ -10,7 +10,6 @@ function App() {
   const radioStream = useSelector( (state) => state.radioStream);
 
   useEffect(()=> {
-    console.log('radiostream',radioStream);
     if(radioStream) radioStream.play();
   },[radioStream]);
 

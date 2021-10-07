@@ -23,3 +23,10 @@ export const storeRadiosInState = ( radios ) => (
 export const storeNewSound = ( sound, radioName ) => (
   { type : 'STORE_NEW_SOUND', newSound : sound, radioName : radioName }
 );
+
+export const setStreamLoaderOn = () => (
+  { type : 'SET_LOADING_ON'}
+);
+// export const setStreamLoaderOff = () => (
+//   { type : 'SET_LOADING_OFF'}
+// );

@@ -1,49 +1,12 @@
 import { SELECT_ERA, SELECT_GENRE,SELECT_COUNTRY, STORE_RADIOS } from './actions';
 
 const initialState ={
-  radios:[
-    // {
-    //   'changeuuid': '',
-    //   'stationuuid': '',
-    //   'name': '',
-    //   'url': '',
-    //   'url_resolved': '',
-    //   'homepage': '',
-    //   'favicon': '',
-    //   'tags': '',
-    //   'country': '',
-    //   'countrycode': '',
-    //   'iso_3166_2': null,
-    //   'state': '',
-    //   'language': '',
-    //   'languagecodes': '',
-    //   'votes': 0,
-    //   'lastchangetime': '',
-    //   'lastchangetime_iso8601': '',
-    //   'codec': '',
-    //   'bitrate': 0,
-    //   'hls': 0,
-    //   'lastcheckok': 0,
-    //   'lastchecktime': '',
-    //   'lastchecktime_iso8601': '',
-    //   'lastcheckoktime': '',
-    //   'lastcheckoktime_iso8601': '',
-    //   'lastlocalchecktime': '',
-    //   'lastlocalchecktime_iso8601': '',
-    //   'clicktimestamp': '',
-    //   'clicktimestamp_iso8601': '',
-    //   'clickcount': 0,
-    //   'clicktrend': 0,
-    //   'ssl_error': 0,
-    //   'geo_lat': null,
-    //   'geo_long': null,
-    //   'has_extended_info': false
-    // }
-  ],
+  radios:[],
   selectorInput  : {
     musicGenre: '',
     musicEra:'',
-  }
+  },
+  isStreamLoading: false,
 };
 
 const reducer = (state = initialState, action) => {
@@ -83,6 +46,16 @@ const reducer = (state = initialState, action) => {
       ...state,
       radioStream : action.newSound,
       radioName : action.radioName
+    };
+  case 'SET_LOADING_ON':
+    return {
+      ...state,
+      isStreamLoading : true
+    };
+  case 'SET_LOADING_OFF':
+    return {
+      ...state,
+      isStreamLoading: false,
     };
 
   default:
