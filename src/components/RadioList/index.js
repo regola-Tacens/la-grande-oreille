@@ -1,15 +1,18 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { useState } from 'react';
 import { Howl, Howler } from 'howler';
-import { storeNewSound } from '../../store/actions';
+import { changePage, getRadiosFromAPI, storeNewSound } from '../../store/actions';
 import './radioList.scss';
 import '../../styles/loader.scss';
+import Radio from './Radio';
+import Title from './Title';
 
 const RadioList = () => {
   Howler.autoUnlock = false;
   const radios = useSelector((state) => state.radios);
   const radioStream = useSelector((state) => state.radioStream);
   const radioName = useSelector((state) => state.radioName);
+  const actualOffset = useSelector((state) => state.pageOffset);
   const dispatch = useDispatch();
   const [isLoading, setIsLoading] = useState(false);
 
@@ -25,25 +28,18 @@ const RadioList = () => {
     dispatch(storeNewSound(sound, radioName));
   };
 
+  const handleChangePage = (direction) => {
+    const newOffset = actualOffset + direction;
+    dispatch(changePage(newOffset));
+    dispatch(getRadiosFromAPI());
+  };
+
   return (
     <div className='radiosList'>
-      {radioName && (
-        <div>
-          <h2>Playing : {radioName}</h2>
-        </div>
-      )}
-      {isLoading && <div className='loader'></div>}
-      {radios.map((radio) => (
-        <div className='radiosList__radio'>
-          <div className='radiosList__radio__name'>{radio.name}</div>
-          <button
-            className='radiosList__radio__playBtn'
-            onClick={() => handleSound(radio.url, radio.name)}
-          >
-            play
-          </button>
-        </div>
-      ))}
+      <Title radioName={radioName} isLoading={isLoading} />
+      {radios.map(radio => <Radio  handleSound={handleSound} radio={radio}/>)}
+      <button className="radiosList__pageBtn" onClick={()=>handleChangePage(-10)}>back</button>
+      <button className="radiosList__pageBtn" onClick={()=>handleChangePage(10)}>next</button>
     </div>
   );
 };

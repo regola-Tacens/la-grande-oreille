@@ -1,5 +1,5 @@
 import { useDispatch } from 'react-redux';
-import { selectEra, selectGenre, getRadiosFromAPI, selectCountry } from '../../store/actions';
+import { selectEra, selectGenre, getRadiosFromAPI, selectCountry, resetPageSetting } from '../../store/actions';
 import './radioSelector.scss';
 
 const RadioSelector = () => {
@@ -19,6 +19,7 @@ const RadioSelector = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    dispatch(resetPageSetting());
     dispatch(getRadiosFromAPI());
   };
 

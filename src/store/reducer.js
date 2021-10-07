@@ -1,4 +1,11 @@
-import { SELECT_ERA, SELECT_GENRE,SELECT_COUNTRY, STORE_RADIOS } from './actions';
+import { SELECT_ERA,
+  SELECT_GENRE,
+  SELECT_COUNTRY,
+  STORE_RADIOS,
+  STORE_NEW_SOUND,
+  CHANGE_PAGE,
+  RESET_PAGE_SETTINGS,
+} from './actions';
 
 const initialState ={
   radios:[],
@@ -6,7 +13,7 @@ const initialState ={
     musicGenre: '',
     musicEra:'',
   },
-  isStreamLoading: false,
+  pageOffset: 0,
 };
 
 const reducer = (state = initialState, action) => {
@@ -41,21 +48,21 @@ const reducer = (state = initialState, action) => {
       ...state,
       radios: action.radios,
     };
-  case 'STORE_NEW_SOUND':
+  case STORE_NEW_SOUND:
     return {
       ...state,
       radioStream : action.newSound,
       radioName : action.radioName
     };
-  case 'SET_LOADING_ON':
+  case CHANGE_PAGE:
     return {
       ...state,
-      isStreamLoading : true
+      pageOffset: action.newOffset
     };
-  case 'SET_LOADING_OFF':
+  case RESET_PAGE_SETTINGS:
     return {
       ...state,
-      isStreamLoading: false,
+      pageOffset: 0
     };
 
   default:

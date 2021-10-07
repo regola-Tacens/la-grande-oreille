@@ -3,6 +3,9 @@ export const SELECT_GENRE = 'SELECT_GENRE';
 export const SELECT_COUNTRY = 'SELECT_COUNTRY'; 
 export const GET_RADIOS = 'GET_RADIOS'; 
 export const STORE_RADIOS = 'STORE_RADIOS'; 
+export const STORE_NEW_SOUND = 'STORE_NEW_SOUND'; 
+export const CHANGE_PAGE = 'CHANGE_PAGE'; 
+export const RESET_PAGE_SETTINGS = 'RESET_PAGE_SETTINGS'; 
 
 export const selectEra = (musicEraInputValue) => (
   {type:SELECT_ERA, musicEraInputValue: musicEraInputValue}
@@ -17,16 +20,18 @@ export const getRadiosFromAPI = () => (
   {type: GET_RADIOS }
 );
 export const storeRadiosInState = ( radios ) => (
-  { type : 'STORE_RADIOS', radios : radios }
+  { type : STORE_RADIOS, radios : radios }
 );
 
 export const storeNewSound = ( sound, radioName ) => (
-  { type : 'STORE_NEW_SOUND', newSound : sound, radioName : radioName }
+  { type : STORE_NEW_SOUND, newSound : sound, radioName : radioName }
 );
 
-export const setStreamLoaderOn = () => (
-  { type : 'SET_LOADING_ON'}
+export const changePage = (newOffset) => (
+  { type : CHANGE_PAGE, newOffset : newOffset}
 );
-// export const setStreamLoaderOff = () => (
-//   { type : 'SET_LOADING_OFF'}
-// );
+export const resetPageSetting = () => (
+  { type: RESET_PAGE_SETTINGS}
+);
+
+
