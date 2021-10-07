@@ -15,6 +15,7 @@ const initialState ={
     musicEra:'',
   },
   pageOffset: 0,
+  startEqualizer:false,
 };
 
 const reducer = (state = initialState, action) => {
@@ -58,7 +59,8 @@ const reducer = (state = initialState, action) => {
     return {
       ...state,
       radioStream : action.newSound,
-      radioName : action.radioName
+      radioName : action.radioName,
+      startEqualizer: true
     };
   case CHANGE_PAGE:
     return {
@@ -70,7 +72,16 @@ const reducer = (state = initialState, action) => {
       ...state,
       pageOffset: 0
     };
-
+  case 'START_EQUALIZER':
+    return{
+      ...state,
+      startEqualizer:true
+    };
+  case 'STOP_EQUALIZER':
+    return {
+      ...state,
+      startEqualizer: false
+    };
   default:
     return state;
   }

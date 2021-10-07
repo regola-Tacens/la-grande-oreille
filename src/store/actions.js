@@ -37,4 +37,10 @@ export const resetPageSetting = () => (
   { type: RESET_PAGE_SETTINGS}
 );
 
+export const StartEqualizer = () => (
+  { type: 'START_EQUALIZER'}
+);
+export const stopEqualizer = () => (
+  { type: 'STOP_EQUALIZER' }
+);
 
