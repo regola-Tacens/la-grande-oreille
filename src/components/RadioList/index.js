@@ -4,6 +4,7 @@ import { Howl, Howler } from 'howler';
 import { changePage, getRadiosFromAPI, storeNewSound } from '../../store/actions';
 import './radioList.scss';
 import '../../styles/loader.scss';
+import { ArrowLeftCircle, ArrowRightCircle } from 'react-feather';
 import Radio from './Radio';
 import Title from './Title';
 
@@ -30,7 +31,8 @@ const RadioList = () => {
 
   const handleChangePage = (direction) => {
     const newOffset = actualOffset + direction;
-    dispatch(changePage(newOffset));
+    // si le nombre d'entrée est supérieur à10, on peut décroitre le nombre d'entrée
+    newOffset >= 0 &&  dispatch(changePage(newOffset));
     dispatch(getRadiosFromAPI());
   };
 
@@ -38,8 +40,8 @@ const RadioList = () => {
     <div className='radiosList'>
       <Title radioName={radioName} isLoading={isLoading} />
       {radios.map(radio => <Radio  handleSound={handleSound} radio={radio}/>)}
-      <button className="radiosList__pageBtn" onClick={()=>handleChangePage(-10)}>back</button>
-      <button className="radiosList__pageBtn" onClick={()=>handleChangePage(10)}>next</button>
+      {radios.length >0 &&( <><button className="radiosList__pageBtn back" onClick={()=>handleChangePage(-10)}><ArrowLeftCircle size={20} /></button>
+        <button className="radiosList__pageBtn forward" onClick={()=>handleChangePage(10)}><ArrowRightCircle size={20} /></button> </>)}
     </div>
   );
 };
