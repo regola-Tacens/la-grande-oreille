@@ -1,7 +1,11 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { useState } from 'react';
 import { Howl, Howler } from 'howler';
-import { changePage, getRadiosFromAPI, storeNewSound } from '../../store/actions';
+import {
+  changePage,
+  getRadiosFromAPI,
+  storeNewSound,
+} from '../../store/actions';
 import './radioList.scss';
 import '../../styles/loader.scss';
 import { ArrowLeftCircle, ArrowRightCircle } from 'react-feather';
@@ -32,18 +36,38 @@ const RadioList = () => {
   const handleChangePage = (direction) => {
     const newOffset = actualOffset + direction;
     // si le nombre d'entrée est supérieur à10, on peut décroitre le nombre d'entrée
-    newOffset >= 0 &&  dispatch(changePage(newOffset));
+    newOffset >= 0 && dispatch(changePage(newOffset));
     dispatch(getRadiosFromAPI());
   };
 
   return (
     <div className='radiosList'>
-      <Title radioName={radioName} isLoading={isLoading} actualOffset={actualOffset} />
-      {radios.map(radio => <Radio  handleSound={handleSound} radio={radio}/>)}
-      {
-        radios.length >0 &&( <><button className="radiosList__pageBtn back" onClick={()=>handleChangePage(-10)}><ArrowLeftCircle size={20} /></button>
-          <button className="radiosList__pageBtn forward" onClick={()=>handleChangePage(10)}><ArrowRightCircle size={20} /></button> </>)
-      }
+      {radios.length > 0 && (
+        <Title
+          radioName={radioName}
+          isLoading={isLoading}
+          actualOffset={actualOffset}
+        />
+      )}
+      {radios.map((radio) => (
+        <Radio handleSound={handleSound} radio={radio} />
+      ))}
+      {radios.length > 0 && (
+        <>
+          <button
+            className='radiosList__pageBtn back'
+            onClick={() => handleChangePage(-10)}
+          >
+            <ArrowLeftCircle size={20} />
+          </button>
+          <button
+            className='radiosList__pageBtn forward'
+            onClick={() => handleChangePage(10)}
+          >
+            <ArrowRightCircle size={20} />
+          </button>
+        </>
+      )}
     </div>
   );
 };
