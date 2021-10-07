@@ -5,6 +5,7 @@ import Header from './components/Header';
 import RadioSelector from './components/RadioSelector';
 import RadioList from './components/RadioList';
 import Footer from './components/Footer';
+import Player from './components/Player';
 
 function App() {
   const radioStream = useSelector( (state) => state.radioStream);
@@ -18,6 +19,7 @@ function App() {
       <Header />
       <RadioSelector />
       <RadioList />
+      <Player />
       <Footer />
     </div>
   );
