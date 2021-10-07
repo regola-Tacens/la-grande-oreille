@@ -1,6 +1,8 @@
 import './player.scss';
+import './equalizer.scss';
 import { useSelector } from 'react-redux';
 import { Pause, Play } from 'react-feather';
+
 
 const Player = () => {
   const radioStream = useSelector ((state) => state.radioStream);
@@ -12,10 +14,13 @@ const Player = () => {
   };
 
   return (
-    <div className="player">
-      <div className="player__Btn" onClick={handleStopRadioStream}><Pause color="white" size={20} /></div>
-      <div className="player__Btn" onClick={handlePlayRadioStream}><Play color="white" size={20} /></div>
-    </div>
+    <>
+      <div className="player">
+        <div className="equalizer"></div>
+        <div className="player__Btn" onClick={handleStopRadioStream}><Pause color="white" size={20} /></div>
+        <div className="player__Btn" onClick={handlePlayRadioStream}><Play color="white" size={20} /></div>
+      </div>
+    </>
   );
 };
 
