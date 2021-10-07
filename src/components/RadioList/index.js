@@ -36,8 +36,8 @@ const RadioList = () => {
 
   const handleChangePage = (direction) => {
     const newOffset = actualOffset + direction;
-    // si le nombre d'entrée est supérieur à10, on peut décroitre le nombre d'entrée
-    newOffset >= 0 && dispatch(changePage(newOffset));
+    // on vérifie qu'il est possible de passer à la page suivante ou à la page précédente
+    if(newOffset >= 0 && newOffset<radiosQuantity) dispatch(changePage(newOffset));
     dispatch(getRadiosFromAPI());
   };
 
