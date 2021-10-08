@@ -17,4 +17,32 @@
     background-color: rgba($color: #000000, $alpha: 0.4);
     padding: 3rem 4.5rem;
   }
+
+  &__subtitle{
+    position: absolute;
+    width:100%;
+    top:7rem;
+    color:white;
+    letter-spacing: 0.2rem;
+  }
+
+  &__image{
+    position:absolute;
+    width:4rem;
+    left:2rem;
+    top:3rem;
+    // background-color: rgb(83, 206, 189);
+    // border-radius: 50%;
+    padding: 0.5rem;
+    
+  }
+  &__circle{
+    // content:'.';
+    z-index:60;
+    width: 5rem;
+    height: 5rem;
+    position: absolute;
+    background: yellow;
+    border-radius: 50%;
+  }
 }
