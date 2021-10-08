@@ -100,3 +100,15 @@ $color_background: #2F2933;
     box-shadow: 0 -8px 0 $color_bar, 0 -16px 0 mix($color_high, $color_bar, 50%), 0 -24px 0 mix($color_high, $color_bar, 75%), 0 -32px 0 mix($color_high, $color_bar, 100%);
   }
 }
+
+@media (max-width:850px){
+  .equalizer {
+    transform: translate(0px,-80px);
+    &:before{
+      display: none;
+    }
+    &:after{
+      display: none;
+    }
+  }
+}

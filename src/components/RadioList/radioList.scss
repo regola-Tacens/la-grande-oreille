@@ -27,6 +27,12 @@
       width:150px;
     }
 
+    &__name{
+      margin-left:2rem;
+      font-size:1.2rem;
+      font-weight: bold;
+    }
+
 
     &:hover{
       background-color: rgb(148, 228, 217);
@@ -110,6 +116,17 @@ left:1rem;
   }
 }
 @media (max-width:850px){
+  .radiosList{
+    &__radio{
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      &__name{
+        margin: 1rem 0 0 0;
+      }
+    }
+  }
   .back{
     left:0px;
     margin:0;
