@@ -16,14 +16,17 @@
 
     &__era, &__genre,&__country{
       position:relative;
+      
     }
 
     &__select{
-      background-color: black;
-      color:white;
+      background-color: transparent;
+      color:black;
       margin-right:1rem;
       padding: 0.5rem;
       border:none;
+      box-shadow: 0px 5px 17px -4px rgba(0,0,0,0.2);
+      
     }
     &__submitBtn{
       background-color: vars.$PopColor;
@@ -31,6 +34,7 @@
       padding:0.5rem;
       color:white;
       border-radius: 50%;
+      box-shadow: 0px 5px 17px -4px rgba(0,0,0,0.6);
     }
   }
 }
@@ -39,8 +43,10 @@
   position:relative;
   left:0px;
   top:1.5px;
-  border:1px solid black;
+  // border:1px solid vars.$PopColor;
   padding:0.4rem;
+  // box-shadow: 0px 5px 17px -4px rgba(0,0,0,0.6);
+
 
 }
 
@@ -80,4 +86,12 @@
     padding:0.5rem 1rem;
     top:1px;
   }
+}
+option{
+  background-color: white;
+  
+}
+
+select option:hover{
+  // background-color: yellow;
 }
