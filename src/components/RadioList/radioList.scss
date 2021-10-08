@@ -21,6 +21,11 @@
     padding:2rem;
     background-color: rgb(83, 206, 189);
     transition: background-color 1s;
+    display: flex;
+
+    &__favicon{
+      width:150px;
+    }
 
 
     &:hover{

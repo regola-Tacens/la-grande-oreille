@@ -9,9 +9,9 @@ import {
 } from '../../store/actions';
 import './radioList.scss';
 import '../../styles/loader.scss';
-import { ArrowLeftCircle, ArrowRightCircle } from 'react-feather';
 import Radio from './Radio';
 import Title from './Title';
+import PageButtons from './PageButtons';
 
 const RadioList = () => {
   Howler.autoUnlock = false;
@@ -37,8 +37,9 @@ const RadioList = () => {
 
   const handleChangePage = (direction) => {
     const newOffset = actualOffset + direction;
+    
     // on vérifie qu'il est possible de passer à la page suivante ou à la page précédente
-    if(newOffset >= 0 && (newOffset)<radiosQuantity) dispatch(changePage(newOffset));
+    newOffset >= 0 && (newOffset) < radiosQuantity && dispatch(changePage(newOffset));
     dispatch(getRadiosFromAPI());
   };
 
@@ -53,25 +54,7 @@ const RadioList = () => {
         />
       )}
       { radios.map((radio) => <Radio handleSound={handleSound} radio={radio} />) }
-
-      {/* -----bouttons pour changer de page ---------- */}
-      {radios.length > 0 && (
-        <>
-          <button
-            className='radiosList__pageBtn back'
-            onClick={() => handleChangePage(-10)}
-          >
-            <ArrowLeftCircle size={20} />
-          </button>
-          <button
-            className='radiosList__pageBtn forward'
-            onClick={() => handleChangePage(10)}
-          >
-            <ArrowRightCircle size={20} />
-          </button>
-        </>
-      )}
-
+      <PageButtons radios={radios} handleChangePage={handleChangePage} />
     </div>
   );
 };
