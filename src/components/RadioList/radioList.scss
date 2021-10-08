@@ -22,16 +22,36 @@
     background-color: vars.$SecondaryColor;
     transition: background-color 1s;
     display: flex;
+    cursor: pointer;
 
     &__favicon{
       width:150px;
+      min-width:150px;
     }
-
-    &__name{
+    &__content{
       margin-left:2rem;
-      font-size:1.2rem;
-      font-weight: bold;
+
+      &__name{
+        font-size:1.5rem;
+        font-weight: bold;
+      }
+
+      &__tags{
+        display: flex;
+        justify-content: left;
+        flex-wrap: wrap;
+        &__tag{
+          background-color: vars.$SecondaryColorFade;
+          border-radius: 5px;
+          padding:0.4rem 0.6rem;
+          margin:0.2rem;
+          color: black;
+          font-size: 0.8rem;
+        }
+      }
+
     }
+    
 
 
     &:hover{
@@ -122,9 +142,13 @@ left:1rem;
       justify-content: center;
       align-items: center;
 
-      &__name{
-        margin: 1rem 0 0 0;
-      }
+     &__content{
+       margin:0 auto;
+       &__name{
+         text-align: center;
+         margin:1rem 0rem;
+       }
+     }
     }
   }
   .back{
