@@ -7,7 +7,7 @@ $color_background: #2F2933;
   height: 5px;
   background: $color_bar;
   position: absolute;
-  transform: translate(-25px, -45px);
+  transform: translate(7rem, 0.5rem);
   box-shadow: 0 -8px 0 $color_bar, 0 -16px 0 $color_bar, 0 -24px 0 $color_bar, 0 -32px 0 $color_bar;
   animation-name: bar1;
   animation-duration: 0.3s;
@@ -17,7 +17,7 @@ $color_background: #2F2933;
   &:before {
     content: '';
     position: absolute;
-    transform: translate(48px, 0);
+    transform: translate(1.5rem, 0rem);
     @extend .equalizer;
     box-shadow: 0 -8px 0 $color_bar;
     animation-name: bar2;
@@ -25,7 +25,7 @@ $color_background: #2F2933;
   &:after {
     content: '';
     position: absolute;
-    transform: translate(24px, 0);
+    transform: translate(-1.5rem, 0rem);
     @extend .equalizer;
     box-shadow: 0 -8px 0 $color_bar, 0 -16px 0 $color_bar, 0 -24px 0 $color_bar;
     animation-name: bar3;

@@ -19,7 +19,6 @@ const RadioList = () => {
   const radioStream = useSelector((state) => state.radioStream);
   const actualOffset = useSelector((state) => state.pageOffset);
   const radiosQuantity = useSelector ((state) => state.radiosQuantity);
-  const isLoading = useSelector ((state) => state.isLoading);
   const dispatch = useDispatch();
 
   const handleSound = (src, radioName) => {
@@ -45,7 +44,7 @@ const RadioList = () => {
   return (
     <div className='radiosList'>
       { radios.map((radio) => <Radio handleSound={handleSound} radio={radio} />)}
-      { radios.length > 0 && <ListFooter radiosQuantity={radiosQuantity} actualOffset={actualOffset} isLoading={isLoading} />} 
+      { radios.length > 0 && <ListFooter radiosQuantity={radiosQuantity} actualOffset={actualOffset}/>} 
       <PageButtons radios={radios} handleChangePage={handleChangePage} />
     </div>
   );
