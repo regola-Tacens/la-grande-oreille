@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect} from 'react';
 import { useSelector } from 'react-redux';
 import './styles/index.scss';
 import Header from './components/Header';

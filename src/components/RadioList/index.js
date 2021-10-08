@@ -35,7 +35,7 @@ const RadioList = () => {
 
   const handleChangePage = (direction) => {
     const newOffset = actualOffset + direction;
-    
+    window.scrollTo({ top: 0, behavior :'smooth'});
     // on vérifie qu'il est possible de passer à la page suivante ou à la page précédente
     newOffset >= 0 && (newOffset) < radiosQuantity && dispatch(changePage(newOffset));
     dispatch(getRadiosFromAPI());
