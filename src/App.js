@@ -19,7 +19,7 @@ function App() {
     <div className="App">
       <Header />
       <RadioSelector />
-      <RadioPlaying />
+      {radioStream && <RadioPlaying />}
       <RadioList />
       {radioStream && <Player /> }
       <Footer />

@@ -1,13 +1,14 @@
 @use 'vars';
 .loader {
-  padding:2rem;
+  padding:1rem;
+  z-index:40;
   // background-color: aqua;
   border-radius: 50%;
   width: 1em;
   height: 1em;
   position: fixed;
-  top:1rem; 
-  right:1rem;
+  top:1.5rem; 
+  right:1.5rem;
   text-indent: -9999em;
   border-top: 1em solid rgba(255, 255, 255, 0.2);
   border-right: 1em solid rgba(255, 255, 255, 0.2);

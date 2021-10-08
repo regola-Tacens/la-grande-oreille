@@ -1,10 +1,12 @@
 @use 'src/styles/vars';
 
 .selector{
+
   margin:0 auto;
   width:80%;
   text-align: center;
   margin-bottom:3rem;
+  padding-top:8rem;
   
 
   &__form{
@@ -44,6 +46,7 @@
 @media (max-width: 850px) {
   .selector{
     width:100%;
+    padding-top:12rem;
     &__form{
       width: 100%;
       flex-direction: column;

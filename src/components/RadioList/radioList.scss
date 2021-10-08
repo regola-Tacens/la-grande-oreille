@@ -3,7 +3,7 @@
 .radiosList{
   // position:relative;
   margin: 0 auto;
-  width:100%;
+  width:70%;
   text-align: left;
   // text-align: center;
   &__pageBtn{
@@ -19,7 +19,7 @@
     position: relative;
     margin:0.5rem;
     padding:2rem;
-    background-color: rgb(83, 206, 189);
+    background-color: vars.$SecondaryColor;
     transition: background-color 1s;
     display: flex;
 
@@ -35,7 +35,7 @@
 
 
     &:hover{
-      background-color: rgb(148, 228, 217);
+      background-color: vars.$SecondaryColorHover;
       transition: background-color 0.2s;
     }
 

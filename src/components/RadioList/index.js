@@ -10,17 +10,16 @@ import {
 import './radioList.scss';
 import '../../styles/loader.scss';
 import Radio from './Radio';
-import Title from './Title';
+import ListFooter from './ListFooter';
 import PageButtons from './PageButtons';
 
 const RadioList = () => {
   Howler.autoUnlock = false;
   const radios = useSelector((state) => state.radios);
   const radioStream = useSelector((state) => state.radioStream);
-  const radioName = useSelector((state) => state.radioName);
   const actualOffset = useSelector((state) => state.pageOffset);
   const radiosQuantity = useSelector ((state) => state.radiosQuantity);
-  const isLoading = useSelector((state) => state.isLoading);
+  const isLoading = useSelector ((state) => state.isLoading);
   const dispatch = useDispatch();
 
   const handleSound = (src, radioName) => {
@@ -45,15 +44,8 @@ const RadioList = () => {
 
   return (
     <div className='radiosList'>
-      {radios.length > 0 && (
-        <Title
-          radiosQuantity={radiosQuantity}
-          radioName={radioName}
-          isLoading={isLoading}
-          actualOffset={actualOffset}
-        />
-      )}
-      { radios.map((radio) => <Radio handleSound={handleSound} radio={radio} />) }
+      { radios.map((radio) => <Radio handleSound={handleSound} radio={radio} />)}
+      { radios.length > 0 && <ListFooter radiosQuantity={radiosQuantity} actualOffset={actualOffset} isLoading={isLoading} />} 
       <PageButtons radios={radios} handleChangePage={handleChangePage} />
     </div>
   );
