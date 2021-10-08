@@ -1,3 +1,5 @@
+@use 'src/styles/vars';
+
 .radioPlaying{
   // background-color: black;
   width:calc(70% - 1rem);
@@ -8,4 +10,25 @@
   padding:2rem;
   // margin-left:0.5rem;
   text-align:center;
+
+  &__status{
+    color: vars.$PopColor;
+    animation: blinkColor 2s infinite ease-in-out;
+    &--chargement{
+      color: vars.$PopColor;
+    }
+  }
+}
+
+@keyframes blinkColor {
+  0% {
+    color: vars.$PopColor;
+  }
+  50% {
+    color: white;
+  }
+  100% {
+    color: vars.$PopColor;
+  }
+  
 }
