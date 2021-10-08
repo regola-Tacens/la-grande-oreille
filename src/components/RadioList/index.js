@@ -1,9 +1,10 @@
 import { useSelector, useDispatch } from 'react-redux';
-import { useState } from 'react';
 import { Howl, Howler } from 'howler';
 import {
   changePage,
   getRadiosFromAPI,
+  startLoader,
+  stopLoader,
   storeNewSound,
 } from '../../store/actions';
 import './radioList.scss';
@@ -19,18 +20,18 @@ const RadioList = () => {
   const radioName = useSelector((state) => state.radioName);
   const actualOffset = useSelector((state) => state.pageOffset);
   const radiosQuantity = useSelector ((state) => state.radiosQuantity);
+  const isLoading = useSelector((state) => state.isLoading);
   const dispatch = useDispatch();
-  const [isLoading, setIsLoading] = useState(false);
 
   const handleSound = (src, radioName) => {
-    setIsLoading(true);
+    dispatch(startLoader());
     if (radioStream) radioStream.unload();
     const sound = new Howl({
       src: src,
       html5: true,
       format: ['webm', 'mp3', 'aac', 'aac+', 'ogg'],
     });
-    sound.once('play', () => setIsLoading(false));
+    sound.once('play', () => dispatch(stopLoader()));
     dispatch(storeNewSound(sound, radioName));
   };
 
@@ -51,9 +52,9 @@ const RadioList = () => {
           actualOffset={actualOffset}
         />
       )}
-      {radios.map((radio) => (
-        <Radio handleSound={handleSound} radio={radio} />
-      ))}
+      { radios.map((radio) => <Radio handleSound={handleSound} radio={radio} />) }
+
+      {/* -----bouttons pour changer de page ---------- */}
       {radios.length > 0 && (
         <>
           <button
@@ -70,6 +71,7 @@ const RadioList = () => {
           </button>
         </>
       )}
+
     </div>
   );
 };

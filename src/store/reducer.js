@@ -16,6 +16,7 @@ const initialState ={
   },
   pageOffset: 0,
   startEqualizer:false,
+  isLoading:false,
 };
 
 const reducer = (state = initialState, action) => {
@@ -81,6 +82,16 @@ const reducer = (state = initialState, action) => {
     return {
       ...state,
       startEqualizer: false
+    };
+  case 'START_LOADER':
+    return {
+      ...state,
+      isLoading: true,
+    };
+  case 'STOP_LOADER':
+    return {
+      ...state,
+      isLoading: false,
     };
   default:
     return state;
