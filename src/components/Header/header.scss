@@ -31,18 +31,27 @@
     width:4rem;
     left:2rem;
     top:3rem;
-    // background-color: rgb(83, 206, 189);
-    // border-radius: 50%;
     padding: 0.5rem;
     
   }
   &__circle{
-    // content:'.';
     z-index:60;
     width: 5rem;
     height: 5rem;
     position: absolute;
     background: yellow;
     border-radius: 50%;
+  }
+}
+@media (max-width:530px){
+  .header{
+    &__subtitle{
+      top:10rem;
+      font-size:0.9rem;
+    }
+    &__image{
+      left:0.5rem;
+      top:2.5rem;
+    }
   }
 }

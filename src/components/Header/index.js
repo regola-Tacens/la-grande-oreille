@@ -7,7 +7,6 @@ const Header = () => {
   return(
     <header className="header">
       <img className="header__image" src={ear} />
-      <div className="header__image__circle"></div>
       <h1 className="header__title">La Grande Oreille</h1>
       <p className="header__subtitle">-- plus de 28000 radios stream !! --</p>
       {isLoading && <div className='loader'></div>}

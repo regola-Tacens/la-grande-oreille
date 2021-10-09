@@ -1,5 +1,7 @@
 @use 'src/styles/vars';
 
+
+
 .selector{
 
   margin:0 auto;
@@ -72,10 +74,10 @@
       &__submitBtn{
         position: relative;
         margin:0.5rem 0 ;
-        border-radius: 0px;;
-        width:60%;
-        border-radius: 10px;
-        height: 30px;
+        padding:3rem;
+        border-radius: 50%;
+        font-size:1.4rem;
+        // height: 30px;
 
       }
     }
@@ -87,11 +89,8 @@
     top:1px;
   }
 }
-option{
-  background-color: white;
-  
-}
+// option:hover{
+//   background-color: white;
+//   color:red;
+// }
 
-select option:hover{
-  // background-color: yellow;
-}

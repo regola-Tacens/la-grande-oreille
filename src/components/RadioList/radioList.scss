@@ -1,11 +1,24 @@
 @use 'src/styles/vars';
 
+.pageCount{
+  position: fixed;
+  right:1rem;
+  bottom:4.5rem;
+  margin:0.5rem;
+  &__counter{
+    text-align: center;
+    color: vars.$SecondaryColor;
+    font-weight: bold;
+    font-size: 1rem;
+  }
+}
+
 .radiosList{
   // position:relative;
   margin: 0 auto;
   width:70%;
   text-align: left;
-  // text-align: center;
+ 
   &__pageBtn{
     position: fixed;
     bottom:1rem;
@@ -53,8 +66,6 @@
 
     }
     
-
-
     &:hover{
       background-color: rgba(111, 218, 203,0.5);
       transition: background-color 0.2s;
@@ -62,21 +73,6 @@
 
     &__name{
       display: inline-block;
-    }
-
-    &__playBtn{
-      position: absolute;
-      right:0;
-      top:1.5rem;
-      border: none;
-      margin-right:1rem;
-      padding:0.5rem;
-
-      &:hover {
-        background-color: rgb(0, 0, 0);
-        color: vars.$PopColor;
-
-      }
     }
   }
 }
@@ -87,12 +83,22 @@ left:1rem;
     transform: translateX(-10px);
     transition: transform 0.5s ease-out;
   }
+
+  &__icon{
+    position : absolute;
+    top:calc(50% - 10px);
+    left:calc(50% - 10px);
+  }
   border-radius: 80%;
   content:'';
-  padding:1rem;
+  padding:1.5rem;
+  max-width:4rem;
+  max-height: 4rem;
+  // min-width:1rem;
 
   transform: translateX(0px);
   transition: transform 0.5s ease-out;
+
 }
 .forward{
   right:1rem;
@@ -101,24 +107,18 @@ left:1rem;
     transform: translateX(10px);
     transition: transform 0.5s ease-out;
   }
+  &__icon{
+    position : absolute;
+    top:calc(50% - 10px);
+    left:calc(50% - 10px);
+  }
   border-radius: 80%;
   content:'';
-  padding:1rem;
+  padding:1.5rem;
   transform: translateX(0px);
   transition: transform 0.5s ease;
 }
 
-.title{
-  display: flex;
-  justify-content: space-between;
-  margin:0.5rem;
-  &__page{
-    text-align: right;
-    color: vars.$SecondaryColor;
-    font-weight: bold;
-    font-size: 1.5rem;
-  }
-}
 @media (max-width:850px){
   .radiosList{
     &__radio{
@@ -136,17 +136,17 @@ left:1rem;
     }
   }
   .back{
-    left:0px;
+    // left:0px;
     margin:0;
-    padding:0.8rem;
-    border-radius: 0px;
+    padding:1.2rem;
+    // border-radius: 0px;
    
   }
   .forward{
-    right:0px;
+    // right:0px;
     margin:0;
-    padding:0.8rem;
-    border-radius: 0px;
+    padding:1.2rem;
+    // border-radius: 0px;
     
   }
 }

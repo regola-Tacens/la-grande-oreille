@@ -10,7 +10,7 @@ import {
 import './radioList.scss';
 import '../../styles/loader.scss';
 import Radio from './Radio';
-import ListFooter from './ListFooter';
+import PageCount from './PageCount';
 import PageButtons from './PageButtons';
 
 const RadioList = () => {
@@ -44,10 +44,11 @@ const RadioList = () => {
   return (
     <div className='radiosList'>
       { radios.map((radio) => <Radio handleSound={handleSound} radio={radio} />)}
-      { radios.length > 0 && <ListFooter radiosQuantity={radiosQuantity} actualOffset={actualOffset}/>} 
+      { radios.length > 0 && <PageCount radiosQuantity={radiosQuantity} actualOffset={actualOffset}/>} 
       <PageButtons radios={radios} handleChangePage={handleChangePage} />
     </div>
   );
 };
 
 export default RadioList;
+  
