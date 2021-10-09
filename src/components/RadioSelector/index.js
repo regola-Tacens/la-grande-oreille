@@ -1,10 +1,11 @@
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { selectEra, selectGenre, getRadiosFromAPI, selectCountry, resetPageSetting } from '../../store/actions';
 import './radioSelector.scss';
 
 const RadioSelector = () => {
   const dispatch = useDispatch();
-
+  const era = useSelector((state) => state.selectorInput.musicEra);
+  const musicGenre = useSelector((state) => state.selectorInput.musicGenre);
   const handleEraSelect = (event) => {
     dispatch(selectEra(event.target.value));
 
@@ -28,7 +29,7 @@ const RadioSelector = () => {
       <form className="selector__form" onSubmit={handleSubmit}>
         <div className='selector__form__era'>
           <label className="label" htmlFor="era">Year</label>
-          <select className="selector__form__select" name="era" onChange={handleEraSelect}>
+          <select className="selector__form__select"  name="era" value={era} onChange={handleEraSelect}>
             <option value="">--</option>
             <option>60s</option>
             <option>70s</option>
@@ -38,7 +39,7 @@ const RadioSelector = () => {
         </div> 
         <div className='selector__form__genre'>
           <label className="label" htmlFor="genre">Genre</label>
-          <select className="selector__form__select" name="genre" onChange={handleGenreSelect}>
+          <select className="selector__form__select" name="genre" value={musicGenre} onChange={handleGenreSelect}>
             <option value="">--</option>
             <option>disco</option>
             <option>pop</option>

@@ -1,12 +1,14 @@
 import axios from 'axios';
 import {
   storeRadiosQuantity,
-  GET_RADIOS
+  GET_RADIOS,
+  GET_RADIOS_BY_TAG
+  // GET_RADIOS_BY_TAG
 } from '../actions';
 
 const getPageCountMiddelware = (store) => (next) => (action) => {
 
-  if(action.type === GET_RADIOS) {
+  if(action.type === GET_RADIOS || action.type === GET_RADIOS_BY_TAG ) {
     const state = store.getState();
     const era = state.selectorInput.musicEra;
     const genre = state.selectorInput.musicGenre;

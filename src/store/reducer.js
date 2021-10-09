@@ -93,6 +93,16 @@ const reducer = (state = initialState, action) => {
       ...state,
       isLoading: false,
     };
+  case 'GET_RADIOS_BY_TAG':
+    return {
+      ...state,
+      selectorInput: {
+        ...state.selectorInput,
+        musicGenre: action.tag,
+        musicEra:'',
+        musicCountry: '',
+      }
+    };
   default:
     return state;
   }
