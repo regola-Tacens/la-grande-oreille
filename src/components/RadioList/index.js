@@ -3,9 +3,11 @@ import { Howl, Howler } from 'howler';
 import {
   changePage,
   getRadiosFromAPI,
+  getRadiosByTagFromAPI,
   startLoader,
   stopLoader,
   storeNewSound,
+  resetPageSetting,
 } from '../../store/actions';
 import './radioList.scss';
 import '../../styles/loader.scss';
@@ -42,7 +44,9 @@ const RadioList = () => {
   };
 
   const handleRadioTag= (tag) => {
-    console.log(tag);
+    window.scrollTo({ top: 0, behavior :'smooth'});
+    dispatch(resetPageSetting());
+    dispatch(getRadiosByTagFromAPI(tag));
   };
 
   return (

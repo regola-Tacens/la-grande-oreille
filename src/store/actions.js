@@ -5,7 +5,8 @@ export const GET_RADIOS = 'GET_RADIOS';
 export const STORE_RADIOS = 'STORE_RADIOS'; 
 export const STORE_NEW_SOUND = 'STORE_NEW_SOUND'; 
 export const CHANGE_PAGE = 'CHANGE_PAGE'; 
-export const RESET_PAGE_SETTINGS = 'RESET_PAGE_SETTINGS'; 
+export const RESET_PAGE_SETTINGS = 'RESET_PAGE_SETTINGS';
+export const GET_RADIOS_BY_TAG =  'GET_RADIOS_BY_TAG';
 
 export const selectEra = (musicEraInputValue) => (
   {type:SELECT_ERA, musicEraInputValue: musicEraInputValue}
@@ -18,6 +19,9 @@ export const selectCountry = (musicCountryInputValue) => (
 );
 export const getRadiosFromAPI = () => (
   {type: GET_RADIOS }
+);
+export const getRadiosByTagFromAPI = (tag) => (
+  { type: GET_RADIOS_BY_TAG, tag : tag}
 );
 export const storeRadiosInState = ( radios ) => (
   { type : STORE_RADIOS, radios : radios }
