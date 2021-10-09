@@ -44,6 +44,8 @@
     }
     &__content{
       margin-left:2rem;
+      transform: translateX(0px);
+      transition: transform 0.2s;
 
       &__name{
         font-size:1.5rem;
@@ -69,6 +71,10 @@
     &:hover{
       background-color: rgba(111, 218, 203,0.5);
       transition: background-color 0.2s;
+    }
+    &:hover>&__content{
+      transform: translateX(10px);
+      transition: transform 0.2s ;
     }
 
     &__name{
