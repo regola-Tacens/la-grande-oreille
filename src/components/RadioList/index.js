@@ -41,9 +41,13 @@ const RadioList = () => {
     dispatch(getRadiosFromAPI());
   };
 
+  const handleRadioTag= (tag) => {
+    console.log(tag);
+  };
+
   return (
     <div className='radiosList'>
-      { radios.map((radio) => <Radio handleSound={handleSound} radio={radio} />)}
+      { radios.map((radio) => <Radio handleSound={handleSound} radio={radio} handleRadioTag ={handleRadioTag} />)}
       { radios.length > 0 && <PageCount radiosQuantity={radiosQuantity} actualOffset={actualOffset}/>} 
       <PageButtons radios={radios} handleChangePage={handleChangePage} />
     </div>
