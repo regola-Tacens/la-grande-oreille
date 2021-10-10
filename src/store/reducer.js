@@ -103,6 +103,18 @@ const reducer = (state = initialState, action) => {
         musicCountry: '',
       }
     };
+  case 'CHANGE_SEARCH_BY_NAME_INPUT':
+    return {
+      ...state, 
+      radioSearchName: action.nameInput,
+      selectorInput: {
+        ...state.selectorInput,
+        musicGenre: '',
+        musicEra:'',
+        musicCountry: '',
+      },
+      pageOffset: 0
+    };
   default:
     return state;
   }

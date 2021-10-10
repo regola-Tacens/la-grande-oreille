@@ -7,6 +7,7 @@ export const STORE_NEW_SOUND = 'STORE_NEW_SOUND';
 export const CHANGE_PAGE = 'CHANGE_PAGE'; 
 export const RESET_PAGE_SETTINGS = 'RESET_PAGE_SETTINGS';
 export const GET_RADIOS_BY_TAG =  'GET_RADIOS_BY_TAG';
+export const GET_RADIOS_BY_NAME =  'GET_RADIOS_BY_NAME';
 
 export const selectEra = (musicEraInputValue) => (
   {type:SELECT_ERA, musicEraInputValue: musicEraInputValue}
@@ -53,5 +54,12 @@ export const startLoader = () => (
 );
 export const stopLoader = () => (
   { type : 'STOP_LOADER'}
+);
+
+export const UpdateSearchByNameValue = (inputValue) => (
+  { type: 'CHANGE_SEARCH_BY_NAME_INPUT', nameInput: inputValue }
+);
+export const SearchByName = () => (
+  { type: GET_RADIOS_BY_NAME }
 );
 

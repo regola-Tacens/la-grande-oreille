@@ -30,9 +30,15 @@
     position:absolute;
     width:4rem;
     left:2rem;
-    top:3rem;
+    top:2.7rem;
     padding: 0.5rem;
     
+  }
+  &__searchBar{
+    left:7rem;
+    top:4rem;
+    position: absolute;
+    width:8rem;
   }
   &__circle{
     z-index:60;
@@ -52,6 +58,14 @@
     &__image{
       left:0.5rem;
       top:2.5rem;
+    }
+  }
+}
+@media (max-width:900px){
+  .header{
+    &__searchBar{
+      top:1rem;
+      left:calc(50% - 4rem);
     }
   }
 }
