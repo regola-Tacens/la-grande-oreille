@@ -17,6 +17,8 @@ const initialState ={
   pageOffset: 0,
   startEqualizer:false,
   isLoading:false,
+  radioSearchName:'',
+  loadError:false,
 };
 
 const reducer = (state = initialState, action) => {
@@ -114,6 +116,17 @@ const reducer = (state = initialState, action) => {
         musicCountry: '',
       },
       pageOffset: 0
+    };
+
+  case 'SET_LOADERROR_TRUE' :
+    return {
+      ...state,
+      loadError:true,
+    };
+  case 'SET_LOADERROR_FALSE' :
+    return {
+      ...state,
+      loadError:false,
     };
   default:
     return state;

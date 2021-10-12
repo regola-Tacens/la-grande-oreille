@@ -11,7 +11,7 @@ const Radio = ({handleSound, radio,handleRadioTag}) => {
         <div className="radiosList__radio__content__tags">
           {
             tags.split(',').map((tag) => (
-              <div className="radiosList__radio__content__tags__tag" onClick={()=>handleRadioTag(tag)}>{tag}</div>
+              <div key={tags} className="radiosList__radio__content__tags__tag" onClick={()=>handleRadioTag(tag)}>{tag}</div>
             ))
           }
         </div>

@@ -8,6 +8,8 @@ import {
   stopLoader,
   storeNewSound,
   resetPageSetting,
+  stopEqualizer,
+  SetloadErrorTrue,
 } from '../../store/actions';
 import './radioList.scss';
 import '../../styles/loader.scss';
@@ -31,6 +33,12 @@ const RadioList = () => {
       html5: true,
       format: ['webm', 'mp3', 'aac', 'aac+', 'ogg'],
     });
+    sound.once('loaderror', () =>{
+      dispatch(stopLoader());
+      dispatch(stopEqualizer());
+      dispatch(SetloadErrorTrue());
+    }
+    );
     sound.once('play', () => dispatch(stopLoader()));
     dispatch(storeNewSound(sound, radioName));
   };
@@ -51,7 +59,7 @@ const RadioList = () => {
 
   return (
     <div className='radiosList'>
-      { radios.map((radio) => <Radio handleSound={handleSound} radio={radio} handleRadioTag ={handleRadioTag} />)}
+      { radios.map((radio) => <Radio key={radio.stationuuid} handleSound={handleSound} radio={radio} handleRadioTag ={handleRadioTag} />)}
       { radios.length > 0 && <PageCount radiosQuantity={radiosQuantity} actualOffset={actualOffset}/>} 
       <PageButtons radios={radios} handleChangePage={handleChangePage} />
     </div>

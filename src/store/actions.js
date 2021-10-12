@@ -62,4 +62,11 @@ export const UpdateSearchByNameValue = (inputValue) => (
 export const SearchByName = () => (
   { type: GET_RADIOS_BY_NAME }
 );
+export const SetloadErrorTrue = () => (
+  { type: 'SET_LOADERROR_TRUE'}
+);
+export const SetloadErrorFalse = () => {
+  console.log('ok false');
+  return { type: 'SET_LOADERROR_FALSE'};
+};
 

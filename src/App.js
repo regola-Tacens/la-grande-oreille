@@ -7,9 +7,11 @@ import RadioList from './components/RadioList';
 import Footer from './components/Footer';
 import Player from './components/Player';
 import RadioPlaying from './components/RadioPlaying';
+import Popup from './components/Popup';
 
 function App() {
   const radioStream = useSelector( (state) => state.radioStream);
+  const isLoadError = useSelector((state) => state.loadError);
 
   useEffect(()=> {
     if(radioStream) radioStream.play();
@@ -18,6 +20,7 @@ function App() {
   return (
     <div className="App">
       <Header />
+      {isLoadError && <Popup /> }
       <RadioSelector />
       {radioStream && <RadioPlaying />}
       <RadioList />
