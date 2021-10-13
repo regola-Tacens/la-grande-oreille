@@ -8,7 +8,7 @@ const Popup = () => {
   };
   return(
     <div className="popup">
-      <h2>Cette radio ne réponds pas</h2>
+      <h3>Cette radio ne réponds pas</h3>
       <button className="popup__closeBtn" onClick={handleSetLoadErrorToFalse}>x</button>
     </div>
   );

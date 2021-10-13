@@ -1,14 +1,12 @@
 @use 'src/styles/vars';
 
 .radioPlaying{
-  // background-color: black;
   width:calc(70% - 1rem);
   box-sizing: border-box;
   margin:0 auto;
   border: 1px solid black;
   color: black;
   padding:2rem;
-  // margin-left:0.5rem;
   text-align:center;
 
   &__status{
